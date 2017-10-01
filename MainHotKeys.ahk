@@ -1,38 +1,47 @@
-﻿#q::SendInput {Blind}u
+﻿;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Created by SciTE4AutoHotkey
+;This will open Ease of Access Center
+;Because Windows logo key +U is assigned to that
+;You cant use Blind here because otherwise it will not cansel input of # itself I assume
+;#q::SendInput {Blind}u
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Main Section.
+;First Line
 XButton1 & q::SendInput {Blind}u
 XButton1 & w::SendInput {Blind}i
 XButton1 & e::SendInput {Blinds}o
 XButton1 & r::SendInput {Blind}p
 XButton1 & t::SendInput {Blind}[
 XButton1 & y::SendInput {Blind}]
-
+;Second Line
 XButton1 & a::SendInput {Blind}j
 XButton1 & s::SendInput {Blind}k
 XButton1 & d::SendInput {Blind}l
 XButton1 & f::SendInput {Blind}`;
 XButton1 & g::SendInput {Blind}`'
-XButton1 & h::SendInput {Blind}a
-
+XButton1 & h::SendInput {Blind}a ;Available
+;Third Line
 XButton1 & z::SendInput {Blind}m
 XButton1 & x::SendInput {Blind}`,
 XButton1 & c::SendInput {Blind}.
 XButton1 & v::SendInput {Blind}/
-XButton1 & b::SendInput {Blind}a
-XButton1 & n::SendInput {Blind}a
-
+XButton1 & b::SendInput {Blind}a ;Available
+XButton1 & n::SendInput {Blind}a ;Available
+;Numbers
 XButton1 & 1::SendInput {Blind}7
 XButton1 & 2::SendInput {Blind}8
 XButton1 & 3::SendInput {Blind}9
 XButton1 & 4::SendInput {Blind}0
 XButton1 & 5::SendInput {Blind}-
 XButton1 & 6::SendInput {Blind}=
-
-XButton1 & vkF4sc029::SendInput {Blind}{BS}
-XButton1 & `::SendInput {Blind}{BS}
-XButton1 & Space::SendInput {Blind}{Enter}
-
-XButton2 & Space::SendInput {Blind}!{Home}
+;Tilda or Space will be used as Enter
+XButton1 & `::SendInput {Blind}{BS} ;Tilda. Special.
+XButton1 & vkF4sc029::SendInput {Blind}{BS} ;For the case above didn't work I guess. Special.
+XButton1 & Space::SendInput {Blind}{Enter} ;Space for Enter. Special.
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Main Numpad
 XButton2 & z::SendInput {Blind}{Numpad1}
 XButton2 & x::SendInput {Blind}{Numpad2}
 XButton2 & c::SendInput {Blind}{Numpad3}
@@ -43,20 +52,20 @@ XButton2 & q::SendInput {Blind}{Numpad7}
 XButton2 & w::SendInput {Blind}{Numpad8}
 XButton2 & e::SendInput {Blind}{Numpad9}
 XButton2 & 1::SendInput {Blind}{Numpad0}
-
-XButton2 & 4::SendInput {Blind}{NumpadSub}
-XButton2 & r::SendInput {Blind}{NumpadAdd}
+XButton2 & Space::SendInput {Blind}!{Home} ;Space is Alt + Home for moveing viewing center to cursor. Special.
+;Numbers for Numpad.
 XButton2 & 2::SendInput {Blind}{NumpadDiv}
 XButton2 & 3::SendInput {Blind}{NumpadMult}
-
-XButton2 & `::SendInput {Blind}.
-
-XButton1 & Tab::SendInput {Blind}!^+{F1}
-XButton2 & Tab::SendInput {Blind}!^+{F2}
-
-
+XButton2 & 4::SendInput {Blind}{NumpadSub}
+XButton2 & r::SendInput {Blind}{NumpadAdd}
+XButton2 & `::SendInput {Blind}. ;Tilda for Dot. Special.
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Special Test Functions
+XButton1 & Tab::SendInput {Blind}!^+{F1} ;Tab for Alt + Control + Shift + F1
+XButton2 & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Disabling Caps Lock and using for Numpad
 CapsLock::Return
-CapsLock & Space::SendInput {Blind}!{Home}
 CapsLock & z::SendInput {Blind}{Numpad1}
 CapsLock & x::SendInput {Blind}{Numpad2}
 CapsLock & c::SendInput {Blind}{Numpad3}
@@ -71,32 +80,45 @@ CapsLock & 4::SendInput {Blind}{NumpadSub}
 CapsLock & r::SendInput {Blind}{NumpadAdd}
 CapsLock & 2::SendInput {Blind}{NumpadDiv}
 CapsLock & 3::SendInput {Blind}{NumpadMult}
-CapsLock & `::SendInput {Blind}.
-CapsLock & Tab::SendInput {Blind}!^+{F2}
+CapsLock & Space::SendInput {Blind}!{Home} ;Space is Alt + Home for moveing viewing center to cursor. Special.
+CapsLock & `::SendInput {Blind}. ;Tilda for Dot. Special.
+CapsLock & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-;//////////////////////////////////////////////////////////////////////////////
-;//////////////////////////////////////////////////////////////////////////////
-
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;I have a feeling that I don't need flag.
+;Grobal Variables
+;For Input Type
 a := 0
+;For Enabling / Disabling Tablet Function
 flag := 0
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;I Will be Triggered when Ctrl + Q was pressed.
+;a = 0 means waiting for pressing q or a. a = -1 means not waiting at all.
 ^q::
-
+;Enable
 if flag = 0
 {
+;Set to Type 0
 a := 0
 flag := 1
 MsgBox Enabled
 }
+;Disable
 else
 {
+;Set to Type -1
 a := -1
 flag := 0
 MsgBox Disabled
 }
-
 Return
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Pentablet Mode. Waiting for Q or W to be pressed.
 #If a = 0
 q::
 a := 1
@@ -104,14 +126,13 @@ while (a = 1)
 {
 }
 Return
-
 w::
 a := 2
 while (a = 2)
 {
 }
 Return
-
+;Normal State
 q::q
 w::w
 e::e
@@ -140,8 +161,18 @@ vkF4sc029::vkF4sc029
 `::`
 Space::Space
 Tab::Tab
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Pen Tablet Mode. Mode 1.
 #If a = 1
+
+;Tab for real key
+*Tab::
+SendInput {Blind}q
+a := 0
+Return
+
 *q::
 SendInput {Blind}u
 a := 0
@@ -277,12 +308,22 @@ SendInput {Blind}{Enter}
 a := 0
 Return
 
+;*Tab::
+;SendInput {Blind}!^+{F1}
+;a := 0
+;Return
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Pen Tablet Mode. Mode 2.
+#If a = 2
+
+;Tab for real key
 *Tab::
-SendInput {Blind}!^+{F1}
+SendInput {Blind}w
 a := 0
 Return
 
-#If a = 2
 *Space::
 SendInput {Blind}!{Home}
 a := 0
@@ -363,7 +404,8 @@ SendInput {Blind}.
 a := 0
 Return
 
-*Tab::
-SendInput {Blind}!^+{F2}
-a := 0
-Return
+;*Tab::
+;SendInput {Blind}!^+{F2}
+;a := 0
+;Return
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
