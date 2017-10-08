@@ -98,16 +98,28 @@ global Type
 ;Enable
 if(Type = -1 or Type = "")
 {
+	;Show Gui, just used sample on documentation
+	Gui Destroy
+	Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+	Gui, Add, Text,,Tablet Mode
+	Gui,Show,X1800 Y30 NoActivate,Mode
+	
 	;Set to Type -1
 	Type := 0
-	MsgBox Enabled
+	;MsgBox Enabled
 }
 ;Disable
 else
 {
+	;just delete Gui
+	Gui Destroy
+	;Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+	;Gui, Add, Text,,Normal Mode
+	;Gui,Show,X1800 Y30 NoActivate,Mode
+	
 	;Set to Type -1
 	Type := -1
-	MsgBox Disabled
+	;MsgBox Disabled
 }
 Return
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
