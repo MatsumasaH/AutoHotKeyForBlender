@@ -58,31 +58,13 @@ XButton2 & 2::SendInput {Blind}{NumpadDiv}
 XButton2 & 3::SendInput {Blind}{NumpadMult}
 XButton2 & 4::SendInput {Blind}{NumpadSub}
 XButton2 & r::SendInput {Blind}{NumpadAdd}
+XButton2 & f::SendInput {Blind}{NumpadAdd}
+XButton2 & v::SendInput {Blind}{NumpadEnter}
 XButton2 & `::SendInput {Blind}. ;Tilda for Dot. Special.
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ;Special Test Functions
 XButton1 & Tab::SendInput {Blind}!^+{F1} ;Tab for Alt + Control + Shift + F1
 XButton2 & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
-;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-;Disabling Caps Lock and using for Numpad
-CapsLock::Return
-CapsLock & z::SendInput {Blind}{Numpad1}
-CapsLock & x::SendInput {Blind}{Numpad2}
-CapsLock & c::SendInput {Blind}{Numpad3}
-CapsLock & a::SendInput {Blind}{Numpad4}
-CapsLock & s::SendInput {Blind}{Numpad5}
-CapsLock & d::SendInput {Blind}{Numpad6}
-CapsLock & q::SendInput {Blind}{Numpad7}
-CapsLock & w::SendInput {Blind}{Numpad8}
-CapsLock & e::SendInput {Blind}{Numpad9}
-CapsLock & 1::SendInput {Blind}{Numpad0}
-CapsLock & 4::SendInput {Blind}{NumpadSub}
-CapsLock & r::SendInput {Blind}{NumpadAdd}
-CapsLock & 2::SendInput {Blind}{NumpadDiv}
-CapsLock & 3::SendInput {Blind}{NumpadMult}
-CapsLock & Space::SendInput {Blind}!{Home} ;Space is Alt + Home for moveing viewing center to cursor. Special.
-CapsLock & `::SendInput {Blind}. ;Tilda for Dot. Special.
-CapsLock & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ;For Direction Keys
 Pause & a::SendInput {Blind}{Left}
@@ -94,6 +76,26 @@ Pause & e::SendInput {Blind}{End}
 Pause & `::SendInput {Blind}{Delete}
 Pause & 1::SendInput {Blind}{PgUp}
 Pause & 2::SendInput {Blind}{PgDn}
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;Disabling Caps Lock and using for Numpad
+;CapsLock::Return
+;CapsLock & z::SendInput {Blind}{Numpad1}
+;CapsLock & x::SendInput {Blind}{Numpad2}
+;CapsLock & c::SendInput {Blind}{Numpad3}
+;CapsLock & a::SendInput {Blind}{Numpad4}
+;CapsLock & s::SendInput {Blind}{Numpad5}
+;CapsLock & d::SendInput {Blind}{Numpad6}
+;CapsLock & q::SendInput {Blind}{Numpad7}
+;CapsLock & w::SendInput {Blind}{Numpad8}
+;CapsLock & e::SendInput {Blind}{Numpad9}
+;CapsLock & 1::SendInput {Blind}{Numpad0}
+;CapsLock & 4::SendInput {Blind}{NumpadSub}
+;CapsLock & r::SendInput {Blind}{NumpadAdd}
+;CapsLock & 2::SendInput {Blind}{NumpadDiv}
+;CapsLock & 3::SendInput {Blind}{NumpadMult}
+;CapsLock & Space::SendInput {Blind}!{Home} ;Space is Alt + Home for moveing viewing center to cursor. Special.
+;CapsLock & `::SendInput {Blind}. ;Tilda for Dot. Special.
+;CapsLock & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
