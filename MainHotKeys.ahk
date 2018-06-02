@@ -142,15 +142,31 @@ Return
 #If Type = 0
 q::
 Type := 1
+Gui Destroy
+Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+Gui, Add, Text,,Q Waiting
+Gui,Show,X1800 Y30 NoActivate,Mode
 while (Type = 1)
 {
 }
+Gui Destroy
+Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+Gui, Add, Text,,Tablet Mode
+Gui,Show,X1800 Y30 NoActivate,Mode
 Return
 w::
 Type := 2
+Gui Destroy
+Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+Gui, Add, Text,,W Waiting
+Gui,Show,X1800 Y30 NoActivate,Mode
 while (Type = 2)
 {
 }
+Gui Destroy
+Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
+Gui, Add, Text,,Tablet Mode
+Gui,Show,X1800 Y30 NoActivate,Mode
 Return
 ;Normal State
 q::q
@@ -328,6 +344,14 @@ SendInput {Blind}{Enter}
 Type := 0
 Return
 
+*Esc::
+Type := 0
+Return
+
+*RButton::
+Type := 0
+Return
+
 ;*Tab::
 ;SendInput {Blind}!^+{F1}
 ;Type := 0
@@ -421,6 +445,14 @@ Return
 
 *`::
 SendInput {Blind}.
+Type := 0
+Return
+
+*Esc::
+Type := 0
+Return
+
+*RButton::
 Type := 0
 Return
 
