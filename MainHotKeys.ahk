@@ -84,6 +84,17 @@ CapsLock & Space::SendInput {Blind}!{Home} ;Space is Alt + Home for moveing view
 CapsLock & `::SendInput {Blind}. ;Tilda for Dot. Special.
 CapsLock & Tab::SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;For Direction Keys
+Pause & a::SendInput {Blind}{Left}
+Pause & s::SendInput {Blind}{Down}
+Pause & d::SendInput {Blind}{Right}
+Pause & w::SendInput {Blind}{Up}
+Pause & q::SendInput {Blind}{Home}
+Pause & e::SendInput {Blind}{End}
+Pause & `::SendInput {Blind}{Delete}
+Pause & 1::SendInput {Blind}{PgUp}
+Pause & 2::SendInput {Blind}{PgDn}
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ;Grobal Variables
