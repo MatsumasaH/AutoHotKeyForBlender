@@ -374,7 +374,7 @@ Return
 
 ;Tab for mode change
 *Tab::
-SendInput {Blind}!^+{F1} ;Tab for Alt + Control + Shift + F2
+SendInput {Blind}!^+{F2} ;Tab for Alt + Control + Shift + F2
 Type := 0
 Return
 
