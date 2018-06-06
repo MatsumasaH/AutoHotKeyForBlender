@@ -115,7 +115,7 @@ if(Type = -1 or Type = "")
 	Gui Destroy
 	Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 	Gui, Add, Text,,Tablet Mode
-	Gui,Show,X1800 Y30 NoActivate,Mode
+	Gui,Show,X1750 Y30 NoActivate,Mode
 	
 	;Set to Type -1
 	Type := 0
@@ -128,7 +128,7 @@ else
 	Gui Destroy
 	;Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 	;Gui, Add, Text,,Normal Mode
-	;Gui,Show,X1800 Y30 NoActivate,Mode
+	;Gui,Show,X1750 Y30 NoActivate,Mode
 	
 	;Set to Type -1
 	Type := -1
@@ -145,28 +145,28 @@ Type := 1
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 Gui, Add, Text,,Right_Side_Keyboard Q
-Gui,Show,X1800 Y30 NoActivate,Mode
+Gui,Show,X1750 Y30 NoActivate,Mode
 while (Type = 1)
 {
 }
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 Gui, Add, Text,,Tablet Mode
-Gui,Show,X1800 Y30 NoActivate,Mode
+Gui,Show,X1750 Y30 NoActivate,Mode
 Return
 w::
 Type := 2
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 Gui, Add, Text,,Numpad W
-Gui,Show,X1800 Y30 NoActivate,Mode
+Gui,Show,X1750 Y30 NoActivate,Mode
 while (Type = 2)
 {
 }
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
 Gui, Add, Text,,Tablet Mode
-Gui,Show,X1800 Y30 NoActivate,Mode
+Gui,Show,X1750 Y30 NoActivate,Mode
 Return
 ;Normal State
 q::q
@@ -197,6 +197,12 @@ vkF4sc029::vkF4sc029
 `::`
 Space::Space
 Tab::Tab
+F1::
+Send,{WheelDown}
+Return
+F2::
+Send,{WheelUp}
+Return
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
