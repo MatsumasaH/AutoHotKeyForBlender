@@ -144,7 +144,7 @@ q::
 Type := 1
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
-Gui, Add, Text,,Q Waiting
+Gui, Add, Text,,Right_Side_Keyboard Q
 Gui,Show,X1800 Y30 NoActivate,Mode
 while (Type = 1)
 {
@@ -158,7 +158,7 @@ w::
 Type := 2
 Gui Destroy
 Gui,+AlwaysOnTop +Disabled -SysMenu +Owner
-Gui, Add, Text,,W Waiting
+Gui, Add, Text,,Numpad W
 Gui,Show,X1800 Y30 NoActivate,Mode
 while (Type = 2)
 {
@@ -203,9 +203,11 @@ Tab::Tab
 ;Pen Tablet Mode. Mode 1.
 #If Type = 1
 
-;Tab for real key
+;Go out from tablet mode to press Q or W
+
+;Tab for mode change
 *Tab::
-SendInput {Blind}q
+SendInput {Blind}!^+{F1} ;Tab for Alt + Control + Shift + F1
 Type := 0
 Return
 
@@ -362,9 +364,11 @@ Return
 ;Pen Tablet Mode. Mode 2.
 #If Type = 2
 
-;Tab for real key
+;Go out from tablet mode to press Q or W
+
+;Tab for mode change
 *Tab::
-SendInput {Blind}w
+SendInput {Blind}!^+{F1} ;Tab for Alt + Control + Shift + F2
 Type := 0
 Return
 
@@ -430,6 +434,16 @@ Return
 
 *r::
 SendInput {Blind}{NumpadAdd}
+Type := 0
+Return
+
+*f::
+SendInput {Blind}{NumpadAdd}
+Type := 0
+Return
+
+*v::
+SendInput {Blind}{NumpadEnter}
 Type := 0
 Return
 
